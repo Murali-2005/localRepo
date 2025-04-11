@@ -1,14 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CGPA Calculator</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <p>
-          Hey I am in loakpur
-    </p>
-  
+  <div class="container">
+    <div style="text-align: right; margin-bottom: 10px;">
+      <label class="theme-switch">
+        <input type="checkbox" id="darkModeToggle" />
+        <span class="slider"></span> 🌙
+      </label>
+    </div>
+
+    <h1>CGPA Calculator</h1>
+
+    <div id="studentForm">
+      <label for="name">Student Name:</label>
+      <input type="text" id="name" required />
+
+      <label for="usn">USN:</label>
+      <input type="text" id="usn" required />
+
+      <label for="branch">Branch:</label>
+      <input type="text" id="branch" required />
+
+      <button onclick="startSubjects()">Submit</button>
+    </div>
+
+    <div id="subjectForm" style="display: none;">
+      <h2>Enter Subject <span id="subjectNumber">1</span></h2>
+
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar" id="progressBar"></div>
+        <p id="progressText" style="text-align: center;">0 / 10 Subjects Entered</p>
+      </div>
+
+      <label>Subject Name:</label>
+      <input type="text" id="subjectName" required />
+
+      <label>Credit Points:</label>
+      <input type="number" id="credits" min="1" required />
+
+      <label>IA1 Marks (out of 20):</label>
+      <input type="number" id="ia1" min="0" max="20" required />
+
+      <label>IA2 Marks (out of 20):</label>
+      <input type="number" id="ia2" min="0" max="20" required />
+
+      <label>IA3 Marks (out of 20):</label>
+      <input type="number" id="ia3" min="0" max="20" required />
+
+      <label>CTA Marks (out of 10):</label>
+      <input type="number" id="cta" min="0" max="10" required />
+
+      <label>SEE Marks (out of 100):</label>
+      <input type="number" id="see" min="0" max="100" required />
+
+      <button onclick="addSubject()">Add Next Subject</button>
+      <button onclick="goBackToPreviousSubject()">⬅️ Previous Subject</button>
+    </div>
+
+    <div id="result" style="display: none;"></div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
